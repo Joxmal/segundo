@@ -1,13 +1,5 @@
 <template>
     <AlertsError class="!fixed z-50" v-if="store.errorInicio"/>
-
-  sdsdsds
-  {{ store.count }}
-  <v-btn @click="store.sumCount()">+</v-btn>
-  <hr>
-  {{ store.server }}
-  <hr>
-  {{ store.errorInicio }}
   <hr>
   <v-sheet width="400" class="mx-auto">
       <v-form fast-fail @submit.prevent="store.IniciarSesion(username,password)">
@@ -25,7 +17,7 @@
   </v-sheet>
   <hr>
   <p>
-    {{ store.$state.ID_USER }}
+
 
   </p>
 
@@ -38,8 +30,6 @@ import PocketBase from 'pocketbase';
 import {useStoreIniciarSesion} from '~/stores/useStoreIniciarSesion';
 
 const store= useStoreIniciarSesion()
-
-const pb = new PocketBase('http://127.0.0.1:8090');
 
 // console.log(process.env._SERVER_POCKETBASE)
 
