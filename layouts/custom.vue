@@ -1,25 +1,11 @@
 <template>
-    <div class="custom">
-      <slot name="header">
-        <p><i>Default #header slot content for <code>layouts/custom.vue</code></i></p>
-      </slot>
-      <slot />
+    <div class="h-screen w-screen flex  justify-center">
+        <div class="mt-20">
+          <slot />
+        </div>
     </div>
-  </template>
+</template>
   
   <style scoped>
-  .custom {
-    border: 1px solid #a795ec;
-    padding: 1rem;
-    position: relative;
-    background-color: #a795ec87;
-  }
-  .custom::before {
-    content: 'layouts/custom.vue';
-    position: absolute;
-    top: 2px;
-    left: 5px;
-    color: #583ccb;
-    font-family: monospace;
-  }
+
   </style>

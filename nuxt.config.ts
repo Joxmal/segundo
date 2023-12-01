@@ -1,8 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-
+// 'https://nuxt.pockethost.io'
 
 
 export default defineNuxtConfig({
+  runtimeConfig:{
+    public:{
+      URL_POCKETBASE: 'http://127.0.0.1:8090'
+    }
+  },
   modules:[
     '@invictus.codes/nuxt-vuetify',
     'nuxt-icon',

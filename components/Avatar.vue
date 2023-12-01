@@ -41,7 +41,7 @@
                 Edit Account
               </v-btn>
               <v-divider class="my-3"></v-divider>
-              <v-btn
+              <v-btn @click="store.cerrarSesion()"
                 rounded
                 variant="text"
               >
@@ -55,6 +55,10 @@
 </template>
 
 <script setup>
+  import {useStoreIniciarSesion} from '~/stores/useStoreIniciarSesion'
+
+  const store = useStoreIniciarSesion()
+
   const user = reactive({
     initials:  'JD',
     fullName: 'John Doe',

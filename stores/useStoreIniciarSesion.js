@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 // import { useStorage } from '@vueuse/core'
+
+import CONSTANTE from '~/config/contants';
 import PocketBase from 'pocketbase';
-const pb = new PocketBase('https://nuxt.pockethost.io');
-
-
+const pb = new PocketBase(CONSTANTE.apiUrl);
 
 export const useStoreIniciarSesion = defineStore('useStoreIniciarSesion', {
   state: () => ({
@@ -24,13 +24,14 @@ export const useStoreIniciarSesion = defineStore('useStoreIniciarSesion', {
     async IniciarSesion(usuario,contraseña) {
       try {
         await pb.collection('users').authWithPassword(
-        usuario,
-        contraseña,
-        );
+          usuario,
+          contraseña,
+          );
+        const router = useRouter()
+        router.push({path:'/'})
         this.ID_USER = pb.authStore.token;
-        console.log(this.ID_USER);
-       console.log (pb.authStore.isValid)
       } catch (error) {
+        console.log(error)
         this.errorInicio = true
         setTimeout(() => {
           this.errorInicio = false
@@ -40,7 +41,9 @@ export const useStoreIniciarSesion = defineStore('useStoreIniciarSesion', {
     
     cerrarSesion(){
       pb.authStore.clear()
-      console.log(pb.authStore.token);
+      const router = useRouter()
+      router.push({path:'/login'})
+
     }
   },
 

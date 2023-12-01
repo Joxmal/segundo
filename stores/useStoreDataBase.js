@@ -1,9 +1,8 @@
 import { defineStore } from 'pinia'
 
+import CONSTANTE from '~/config/contants';
 import PocketBase from 'pocketbase';
-const pb = new PocketBase('https://nuxt.pockethost.io');
-
-
+const pb = new PocketBase(CONSTANTE.apiUrl);
 
 export const useStoreDataBase = defineStore('useStoreDataBase', {
   state: () => ({
