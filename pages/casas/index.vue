@@ -24,6 +24,7 @@ import {useStoreDataBase} from '../../stores/useStoreDataBase';
 const store = useStoreDataBase()
 setTimeout(() => {
     console.log(store.dataCasas)
+    console.log('todo bien')
 }, 2000);
 
 
