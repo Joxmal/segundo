@@ -1,20 +1,27 @@
 <template>
     <v-card
       class="rounded-shaped my-1 mx-auto"
-      max-width="240px" 
+      width="200px"
     >
       <v-img
         :src="props.image"
         cover
-        class="max-w-[200px]"
+        height="200px"
       ></v-img>
   
-      <v-card-title>
-        {{props.Title}}
+      <v-card-title class="text-center">
+        {{props.title}}
       </v-card-title>
-  
-      <v-card-subtitle>
+      <v-divider/>
+      <v-card-subtitle class="py-2 text-center">
+        <a class="text-blue" :href="props.link" target="_blank">link</a>
+      </v-card-subtitle>
+      <v-divider/>
+      <v-card-subtitle class="text-center">
         {{ props.subtitle }}
+        <v-divider />
+        <v-icon color="yellow" icon="mdi-star" size="x-small" v-for="n in props.puntuacion" :key="n"></v-icon>
+       
       </v-card-subtitle>
   
       <v-card-actions>
@@ -23,7 +30,7 @@
           variant="text"
           @click="show = !show"
         >
-          {{props.precio}}
+          ${{formatearNumero(props.precio)}}
         </v-btn>
   
         <v-spacer></v-spacer>
@@ -51,6 +58,17 @@
 
 const show= ref(false)
 
+
+function formatearNumero(numero){
+    return new Intl.NumberFormat("es-CL").format(numero);
+}
+
+function puntuacion(puntuacion){
+  let star = `<v-icon color="yellow" icon="mdi-star" size="x-small"></v-icon>`
+
+  return star
+}
+
 const props = defineProps({
 title:{
     type:String
@@ -60,13 +78,19 @@ subtitle:{
 },
 image:{
     type: String,
-    default:'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg'
+    default:'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
 },
 content:{
     type: String
 },
 precio:{
-    type: String
+    type: Number
+},
+link:{
+  type: String
+},
+puntuacion:{
+  type: Number
 }
 })
 

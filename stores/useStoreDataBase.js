@@ -23,9 +23,11 @@ export const useStoreDataBase = defineStore('useStoreDataBase', {
       }
     },
 
-    async CrearCasa(nombre,puntuacion,direccion,Adicional,precio){
+    async CrearCasa(valores){
       try {
-          const record = await pb.collection('casas').create({nombre,puntuacion,direccion,Adicional,precio});
+          const record = await pb.collection('casas').create(valores); //    "nombre": "test", "puntuacion": 123, "direccion": "Maracay", "Adicional": "test" 
+          console.log(record)
+          this.ListarCasas()
       } catch (error) {
           console.error(error)
       }

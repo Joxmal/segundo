@@ -13,6 +13,7 @@
                 :rules="[rules.required, rules.min]"
                 :type="show1 ? 'text' : 'password'" 
                 hint="Minimo de 8 letras"
+                placeholder="Contraseña"
                 
                 counter
                 @click:append-inner="show1 = !show1"
@@ -21,22 +22,22 @@
           <v-btn type="submit" color="primary" block class="mt-2">Login</v-btn>
       </v-form>
   </v-sheet>
-
 </template>
 
 
 <script setup>
 import {useStoreIniciarSesion} from '~/stores/useStoreIniciarSesion';
 
+
+
 definePageMeta({
   layout: 'custom',
-  middleware: 'authenticated'
 })
 
 const store= useStoreIniciarSesion()
 
 const username = ref('')
-const password = ref('password')
+const password = ref('')
 
 const show1 =ref()
 

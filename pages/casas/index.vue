@@ -4,9 +4,12 @@
     <CardCasas v-if="store.dataCasas" v-for="(data,index) in store.dataCasas" :key="index"
     class="self-start"
     :title="data.nombre"
+    :image="data.imagen == '' ? 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg' : `${CONSTANTE.apiUrl}/api/files/${data.collectionId}/${data.id}/${data.imagen}`"
     :subtitle="data.direccion"
     :content="data.Adicional"
-    :precio="'$'+data.precio"
+    :precio="data.precio"
+    :link="data.link"
+    :puntuacion="data.puntuacion"
     />
 </v-container>
 
@@ -20,10 +23,12 @@
 
 <script setup>
 import {useStoreDataBase} from '../../stores/useStoreDataBase';
+import CONSTANTE from '~/config/contants';
 
 const store = useStoreDataBase()
 setTimeout(() => {
     console.log(store.dataCasas)
+    
     console.log('todo bien')
 }, 2000);
 

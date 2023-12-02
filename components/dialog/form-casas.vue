@@ -1,33 +1,39 @@
 <template>
-    <v-row justify="center">
-      <v-dialog
-        v-model="dialog"
-        persistent
-        width="1024"
-      >
-        <template v-slot:activator="{ props }">
-          <v-btn
-            color="primary"
-            v-bind="props"
-          >
-            Open Dialog
-          </v-btn>
-        </template>
+
+
+  <v-dialog
+  v-model="dialog"
+  
+  width="1024"
+  >
+  
+  <template v-slot:activator="{ props }">
+    <v-btn
+    color="primary"
+    v-bind="props"
+    >
+    Open Dialog
+  </v-btn>
+</template>
+
+
+      <v-form @submit.prevent="store.CrearCasa(datosCasas)">
         <v-card>
           <v-card-title>
             <span class="text-h5">User Profile</span>
           </v-card-title>
           <v-card-text>
             <v-container>
+
               <v-row>
                 <v-col
                   cols="12"
                   sm="6"
                 >
                   <v-text-field
-
                     label="titulo"
                     required
+                    v-model="datosCasas.nombre"
                   ></v-text-field>
                 </v-col>
 
@@ -38,8 +44,9 @@
                   <v-autocomplete
                     :items="itemsUbicacion"
                     label="Ubicación"
-                    hint="donde queda"
+                    hint="Direccion"
                     persistent-hint
+                    v-model="datosCasas.direccion"
                     required
                   ></v-autocomplete>
                 </v-col>
@@ -48,6 +55,7 @@
                   <v-text-field
                     :rules="ruleCasa.precio"
                     label="Precio"
+                    v-model="datosCasas.precio"
                     variant="filled"
                     type="number"
                     required
@@ -59,7 +67,16 @@
                     label="descripción"
                     variant="filled"
                     required
+                    v-model="datosCasas.Adicional"
                   ></v-textarea>
+                </v-col>
+                <v-col cols="12">
+                  <v-text-field
+                    label="link"
+                    variant="filled"
+                    required
+                    v-model="datosCasas.link"
+                  ></v-text-field>
                 </v-col>
 
                 <v-col
@@ -69,9 +86,12 @@
                     :items="[1, 2, 3, 4, 5]"
                     label="Puntuación"
                     density="comfortable"
+                    v-model="datosCasas.puntuacion"
                   ></v-select>
                 </v-col>
               </v-row>
+
+
             </v-container>
             <small>*rellenar los campos</small>
           </v-card-text>
@@ -79,29 +99,43 @@
             <v-spacer></v-spacer>
             <v-btn
               color="blue-darken-1"
-              variant="text"
-              @click="dialog = false"
-            >
-              Close
-            </v-btn>
-            <v-btn
-              color="blue-darken-1"
-              variant="text"
+              
+              type="submit"
               @click="dialog = false"
             >
               Save
             </v-btn>
           </v-card-actions>
         </v-card>
+      </v-form>  
+
+        
+        
       </v-dialog>
-    </v-row>
+
+
   </template>
     
 
 <script setup>
-import {useStoreIniciarSesion} from "@/stores/useStoreIniciarSesion"
+import {useStoreDataBase} from "@/stores/useStoreDataBase"
 
-const store = useStoreIniciarSesion()
+const store = useStoreDataBase()
+
+const datosCasas = reactive ({
+  nombre: "sss",
+  puntuacion:2 ,
+  direccion: "Maracay",
+  Adicional: "we",
+  precio:123,
+  link:''
+})
+
+
+  
+  
+
+
 
 const dialog = ref() 
 
