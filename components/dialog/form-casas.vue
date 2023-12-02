@@ -123,11 +123,11 @@ import {useStoreDataBase} from "@/stores/useStoreDataBase"
 const store = useStoreDataBase()
 
 const datosCasas = reactive ({
-  nombre: "sss",
-  puntuacion:2 ,
-  direccion: "Maracay",
-  Adicional: "we",
-  precio:123,
+  nombre: "",
+  puntuacion:0 ,
+  direccion: "",
+  Adicional: "",
+  precio:0,
   link:''
 })
 
