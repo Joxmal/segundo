@@ -8,6 +8,7 @@ export default defineNuxtConfig({
       URL_POCKETBASE: 'http://127.0.0.1:8090'
     }
   },
+  ssr: true,
   modules:[
     '@invictus.codes/nuxt-vuetify',
     'nuxt-icon',
@@ -28,7 +29,7 @@ export default defineNuxtConfig({
       icons:{
         defaultSet: 'mdi',
       },
-      ssr:false
+      ssr:true
     },
     moduleOptions: {
       /* nuxt-vuetify module options */

@@ -26,17 +26,16 @@ import {useStoreDataBase} from '../../stores/useStoreDataBase';
 import CONSTANTE from '~/config/contants';
 
 const store = useStoreDataBase()
-setTimeout(() => {
-    console.log(store.dataCasas)
-    
-    console.log('todo bien')
-}, 2000);
+
+
+definePageMeta({
+middleware:'authenticated'
+})
 
 
 
 onBeforeMount(()=>{
     store.ListarCasas()
-
 })
 
 </script>

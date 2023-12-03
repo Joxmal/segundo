@@ -1,7 +1,7 @@
 <template>
     <AlertsError class="!fixed top-0 right-0 m-4  z-50" v-if="store.errorInicio"/>
 
-  <v-sheet  width="300"  class="mx-auto rounded-shaped p-4"  >
+  <v-sheet  width="300"  class="mx-auto rounded-shaped p-4 mt-32"  >
       <v-form fast-fail @submit.prevent="store.IniciarSesion(username,password)">
             <v-text-field v-model="username" label="Usuario"
             append-inner-icon='mdi-account'
@@ -31,7 +31,7 @@ import {useStoreIniciarSesion} from '~/stores/useStoreIniciarSesion';
 
 
 definePageMeta({
-  layout: 'custom',
+  layout: false
 })
 
 const store= useStoreIniciarSesion()
