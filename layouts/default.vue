@@ -7,7 +7,7 @@ class="mx-auto">
     <v-app-bar
     color="primary"
     scroll-behavior="hide"
-    scroll-threshold="0"
+    scroll-threshold="30"
     density="compact"
  
       >
