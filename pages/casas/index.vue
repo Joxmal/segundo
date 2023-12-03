@@ -2,7 +2,7 @@
 <hr>
 <v-container class="flex flex-wrap items-center justify-start self-start">
     <CardCasas v-if="store.dataCasas" v-for="(data,index) in store.dataCasas" :key="index"
-    class="self-start"
+    class="self-start "
     :title="data.nombre"
     :image="data.imagen == '' ? 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg' : `${CONSTANTE.apiUrl}/api/files/${data.collectionId}/${data.id}/${data.imagen}`"
     :subtitle="data.direccion"

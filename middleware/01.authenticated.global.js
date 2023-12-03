@@ -6,7 +6,6 @@ export default defineNuxtRouteMiddleware((to,from)=>{
     if (to.path !== '/login' && response == true) {
       console.log('esta autenticado')
     } else if (to.path !== '/login' && response == false) {
-      alert ("no esta autenticado")
       return navigateTo('/login')
     }
   } catch (error) {

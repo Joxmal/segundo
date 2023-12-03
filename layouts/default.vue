@@ -2,14 +2,14 @@
 <v-app
 class="mx-auto">
   <NavbarDefault />
-  <v-card>
+  <v-card    class="!z-30">
 
     <v-app-bar
     color="primary"
     scroll-behavior="hide"
-    scroll-threshold="20"
+    scroll-threshold="0"
     density="compact"
-    border
+ 
       >
 
       <v-app-bar-title>Menu</v-app-bar-title>
